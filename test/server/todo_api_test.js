@@ -75,31 +75,30 @@ describe('Todo endpoints', function() {
   });
 
   // PUT
-  // it('should overwrite a todo', function(done) {
-  //   chai.request(urlBase)
-  //     .put('/todo/' + todoId)
-  //     .send({'text': 'Build a better app!'})
-  //     .end(function(err, res) {
-  //       expect(err).to.eql(null);
-  //       expect(res.body).to.exist; // jshint ignore:line
-  //       // expect(res.body.text).to.eql('Build a better app!');
-  //       console.log(res.body);
-  //
-  //       done();
-  //     });
-  // });
+  it('should overwrite a todo', function(done) {
+    chai.request(urlBase)
+      .put('/todo/' + todoId)
+      .send({'text': 'Build a better app!'})
+      .end(function(err, res) {
+        expect(err).to.eql(null);
+        expect(res.body).to.exist; // jshint ignore:line
+        expect(res.body.text).to.eql('Build a better app!');
+
+        done();
+      });
+  });
 
   // DELETE
-  // it('should delete a todo', function(done) {
-  //   chai.request(urlBase)
-  //     .delete('/todo/' + todoId)
-  //     .end(function(err, res) {
-  //       expect(err).to.eql(null);
-  //       expect(res.status).to.eql(200);
-  //       expect(res.body.msg).to.eql('Todo with id: ' + todoId + ' deleted.');
-  //
-  //       done();
-  //     });
-  // });
+  it('should delete a todo', function(done) {
+    chai.request(urlBase)
+      .delete('/todo/' + todoId)
+      .end(function(err, res) {
+        expect(err).to.eql(null);
+        expect(res.status).to.eql(200);
+        expect(res.body.msg).to.eql('Todo with id: ' + todoId + ' deleted.');
+
+        done();
+      });
+  });
 
 });

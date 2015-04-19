@@ -26,7 +26,7 @@ module.exports = function(app) {
   });
 
   // PUT
-  app.put('/todo:id', function(req, res) {
+  app.put('/todo/:id', function(req, res) {
     var updatedTodo = req.body;
     delete updatedTodo._id;
     Todo.update({_id: req.params.id}, updatedTodo, function(err) {
@@ -37,7 +37,7 @@ module.exports = function(app) {
   });
 
   // DELETE
-  app.delete('/todo:id', function(req, res) {
+  app.delete('/todo/:id', function(req, res) {
     Todo.remove({_id: req.params.id}, function(err) {
       if (err) { return res.status(500).send({'msg': 'Could not delete.'}); }
 
