@@ -7,20 +7,12 @@
 <body>
 
   <div ng-controller="MyController">
-    <h1>Hello {{ clock }}!</h1>
+    <h1>Hello {{ clock.now }}!</h1>
   </div>
-  <script type="text/javascript">
-    function MyController($scope) {
-      $scope.clock = new Date();
-      var updateClock = function() {
-        $scope.clock = new Date();
-      };
-      setInterval(function() {
-        $scope.$apply(updateClock);
-      }, 1000);
-      updateClock();
-    };
-  </script>
+  <!-- <script type="text/javascript" src="js/app.js"></script> -->
 
+  <!-- My build proces moves all the .js files to bundle.js -->
+  <!-- I will leave the script tags from the book in line for reference -->
+  <script type="text/javascript" src="bundle.js"></script>
 </body>
 </html>
