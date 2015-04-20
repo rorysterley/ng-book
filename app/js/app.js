@@ -2,27 +2,36 @@
 
 require('angular/angular');
 
-var app = angular.module('app', []);
+var app = angular.module('myApp', []);
 
-app.controller('FirstController', function($scope) {
-  $scope.counter = 0;
-  $scope.add = function(amount) { $scope.counter += amount; };
-  $scope.subtract = function(amount) { $scope.counter -= amount; };
-});
+app.controller('MyController',
+  ['$scope', '$interpolate', function($scope, $interpolate) {
+    $scope.to = 'ari@fullstack.io';
+    $scope.emailBody = 'Hello {{ to }},\n\nMy name is Ari too!';
 
-app.controller('MyController', function($scope) {
-  $scope.person = {
-    name: 'El estudiante muy mal!'
-  };
-});
+    // Set up a watch
+    $scope.$watch('emailBody', function(body) {
+      if (body) {
+        var template = $interpolate(body);
+        $scope.previewText = template({to: $scope.to});
+      }
+    });
+  }]);
 
-app.controller('ParentController', function($scope) {
-  $scope.person = {greeted: false};
-});
-
-app.controller('ChildController', function($scope) {
-  $scope.sayHello = function() {
-    $scope.person.name = 'Ari Learner';
-    $scope.person.greeted = true;
-  };
-});
+/**
+ * This is how the book does it.
+ */
+// angular.module('myApp', [])
+//   .controller('MyController',
+//     function($scope, $interpolate) {
+//       $scope.to = 'ari@fullstack.io';
+//       $scope.emailBody = 'Hello {{ to }},\n\nMy name is Ari too!';
+//       // Set up a watch
+//       $scope.$watch('emailBody', function(body) {
+//         if (body) {
+//           var template = $interpolate(body);
+//           $scope.previewText =
+//             template({to: $scope.to});
+//         }
+//       });
+//     });
