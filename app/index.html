@@ -5,7 +5,7 @@
 </head>
 <body>
 
-  <div ng-controller="FirstController">
+  <!-- <div ng-controller="FirstController">
     <h4>The simplest adding machine ever</h4>
     <button ng-click="add(1)" class="button">Add</button>
     <a ng-click="subtract(1)" class="button alert">Subtract</a>
@@ -16,6 +16,13 @@
     <h1>{{ person }}</h1>
     and their name:
     <h2>{{ person.name }}</h2>
+  </div> -->
+
+  <div ng-controller="ParentController">
+    <div ng-controller="ChildController">
+      <a ng-click="sayHello()">Say hello</a>
+    </div>
+    {{ person }}
   </div>
 
   <script type="text/javascript" src="bundle.js"></script>
