@@ -24,3 +24,14 @@ app.directive('ensureUnique', ['$http', function($http) {
     }
   };
 }]);
+
+app.controller('signupController', ['$scope', function($scope) {
+  $scope.submitted = false;
+  $scope.signupForm = function() {
+    if ($scope.signup_form.$valid) {
+      // Submit as normal
+    } else {
+      $scope.signup_form.submitted = true;
+    }
+  };
+}]);
