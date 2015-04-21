@@ -4,34 +4,23 @@ require('angular/angular');
 
 var app = angular.module('myApp', []);
 
-app.controller('MyController',
-  ['$scope', '$interpolate', function($scope, $interpolate) {
-    $scope.to = 'ari@fullstack.io';
-    $scope.emailBody = 'Hello {{ to }},\n\nMy name is Ari too!';
-
-    // Set up a watch
-    $scope.$watch('emailBody', function(body) {
-      if (body) {
-        var template = $interpolate(body);
-        $scope.previewText = template({to: $scope.to});
-      }
-    });
-  }]);
-
-/**
- * This is how the book does it.
- */
-// angular.module('myApp', [])
-//   .controller('MyController',
-//     function($scope, $interpolate) {
-//       $scope.to = 'ari@fullstack.io';
-//       $scope.emailBody = 'Hello {{ to }},\n\nMy name is Ari too!';
-//       // Set up a watch
-//       $scope.$watch('emailBody', function(body) {
-//         if (body) {
-//           var template = $interpolate(body);
-//           $scope.previewText =
-//             template({to: $scope.to});
-//         }
-//       });
-//     });
+// Note: The backend does not currently sport '/api/check/'
+app.directive('ensureUnique', ['$http', function($http) {
+  return {
+    require: 'ngModel',
+    link: function(scope, ele, attrs, c) {
+      scope.$watch(attrs.ngModel, function(n) {
+        if (!n) { return; }
+        $http({
+          method: 'POST',
+          url: '/api/check/' + attrs.ensureUnique,
+          data: {'field': attrs.ensureUnique}
+        }).success(function(data) {
+          c.$setValidity('unique', data.isUnique);
+        }).error(function(data) {
+          c.$setValidity('unique', false);
+        });
+      });
+    }
+  };
+}]);
