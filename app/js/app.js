@@ -9,7 +9,7 @@ app.directive('myDirective', function() {
     restrict: 'A', // (A) attribute style is standard for custom elements
     replace: true, // replace directive with what is in the template
     scope: {
-      myUrl: '@',      // binding strategy
+      myUrl: '@someAttr', // binding strategy: Now we use 'some-attr' in html
       myLinkText: '@' // binding strategy
     },
     template: '<a href="{{ myUrl }}">{{ myLinkText }}</a>'
