@@ -6,8 +6,10 @@
 </head>
 <body>
 
-  {{ someProperty }}
-  <button ng-click="someAction()"></button>
+  <div ng-controller="SomeController">
+    {{ someModel.someProperty }}
+    <button ng-click="someAction()">Communicate</button>
+  </div>
 
   <script type="text/javascript" src="bundle.js"></script>
 </body>
