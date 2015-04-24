@@ -6,17 +6,13 @@
 </head>
 <body>
 
-  <label>someProperty = {{ someProperty }}</label>
+  <label>Select Two Fish:</label>
   <input type="checkbox"
-         ng-checked="someProperty"
-         ng-init="someProperty = true"
-         ng-model="someProperty">
-
-  <label>anotherProperty = {{ anotherProperty }}</label>
-  <input type="checkbox"
-         ng-checked="anotherProperty"
-         ng-init="anotherProperty = false"
-         ng-model="anotherProperty">
+         ng-model="isTwoFish"><br/>
+  <select>
+    <option>One Fish</option>
+    <option ng-selected="isTwoFish">Two Fish</option>
+  </select>
 
   <script type="text/javascript" src="bundle.js"></script>
 </body>
