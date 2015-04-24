@@ -6,11 +6,11 @@
 </head>
 <body>
 
-  <!-- Always use ng-href when href includes an {{ expression }} -->
-  <a ng-href="{{ myHref }}">I'm feeling lucky, when I load</a>
-
-  <!-- href may not load before user clicks -->
-  <a href="{{ myHref }}">I'm feeling 404</a>
+  <h1>Wrong Way</h1>
+  <img src="{{imgSrc}}" />
+  
+  <h1>Right way</h1>
+  <img ng-src="{{imgSrc}}" />
 
   <script type="text/javascript" src="bundle.js"></script>
 </body>
