@@ -9,9 +9,14 @@ app.directive('myDirective', function() {
     restrict: 'A', // (A) attribute style is standard for custom elements
     replace: true, // replace directive with what is in the template
     scope: {
-      myUrl: '@someAttr', // binding strategy: Now we use 'some-attr' in html
+      myUrl: '=someAttr', // = binding strategy
       myLinkText: '@' // binding strategy
     },
-    template: '<a href="{{ myUrl }}">{{ myLinkText }}</a>'
+    template: '' +
+      '<div>' +
+        '<label>My Url Field:</label>' +
+        '<input type="text" ng-model="myUrl" />' +
+        '<a href="{{ myUrl }}">{{ myLinkText }}</a>' +
+      '</div>'
   };
 });
