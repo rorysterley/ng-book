@@ -7,10 +7,10 @@
 <body>
 
   <div ng-controller="SomeController">
-    {{ someBareValue }}
+    {{ someModel.someValue }}
     <button ng-click="someAction()">Communicate to child</button>
     <div ng-controller="ChildController">
-      {{ someBareValue }}
+      {{ someModel.someValue }}
       <button ng-click="childAction()">Communicate to parent</button>
     </div>
   </div>
