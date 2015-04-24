@@ -4,9 +4,9 @@ require('angular/angular');
 
 var app = angular.module('myApp', []);
 
-app.controller('PeopleController', function($scope) {
-  $scope.people = [
-    {name: 'Ari', city: 'San Francisco'},
-    {name: 'Erik', city: 'Seattle'}
-  ];
+app.controller('EquationController', function($scope) {
+  $scope.equation = {};
+  $scope.change = function() {
+    $scope.equation.output = Number($scope.equation.x) + 2;
+  };
 });
