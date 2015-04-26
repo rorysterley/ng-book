@@ -7,12 +7,27 @@
 </head>
 <body>
 
-  <div ng-controller="EquationController">
-    <input type="tex"
-           ng-model="equation.x"
-           ng-change="change()" />
-    <code>{{ equation.output }}</code>
-  </div>
+  <form name="signup_form"
+        ng-controller="FormController"
+        ng-submit="submitForm()"
+        novalidate>
+    <div ng-repeat="field in fields"
+         ng-form="Signup_form_input">
+      <input type="text"
+             name="dynamic_input"
+             ng-required="field.isRequired"
+             ng-model="field.name"
+             placeholder="{{ field.placeholder }}" />
+      <div ng-show="signup_form_input.dynamic_input.$dirty &&
+                    signup_form_input.dynamic_input.$invalid">
+        <span class="error" ng-show="signup_form_input.dynamic_input.$error.required">
+          The field is required.
+        </span>
+      </div>
+    </div>
+    <button type="submit" ng-disabled="signup_form.$invalid">
+      Submit All
+    </button>
 
   <script type="text/javascript" src="bundle.js"></script>
 </body>
