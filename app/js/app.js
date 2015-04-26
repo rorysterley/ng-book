@@ -4,13 +4,8 @@ require('angular/angular');
 
 var app = angular.module('myApp', []);
 
-app.controller('FormController', ['$scope', function($scope) {
-  $scope.person = { name: null };
-  $scope.people = [];
-  $scope.submit = function() {
-    if ($scope.person.name) {
-      $scope.people.push({name: $scope.person.name});
-      $scope.person.name = '';
-    }
+app.controller('LotteryController', ['$scope', function($scope) {
+  $scope.generateNumber = function() {
+    return Math.floor((Math.random() * 10) + 1);
   };
 }]);

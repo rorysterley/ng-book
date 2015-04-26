@@ -7,15 +7,15 @@
 </head>
 <body>
 
-  <form ng-submit="submit()" ng-controller="FormController">
-    Enter text and hit enter:
-    <input type="text" ng-model="person.name" name="person.name" />
-    <input type="submit" name="person.name" value="Submit" />
-    <code>people={{ people }}</code>
-    <ul ng-repeat="(index, object) in people">
-      <li>{{ object.name }}</li>
-    </ul>
-  </form>
+  <div ng-controller="LotteryController">
+    <div ng-class="{red: x > 5}" ng-if="x > 5">
+      You won!
+    </div>
+    <button ng-click="x = generateNumber()" ng-init="x = 0">
+      Draw Number
+    </button>
+    <p>Number is: {{ x }}</p>
+  </div>
 
   <script type="text/javascript" src="bundle.js"></script>
 </body>
