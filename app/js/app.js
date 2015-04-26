@@ -4,14 +4,8 @@ require('angular/angular');
 
 var app = angular.module('myApp', []);
 
-app.controller('FormController', ['$scope', function($scope) {
-  $scope.fields = [
-    {placeholder: 'Username', isRequired: true},
-    {placeholder: 'Password', isRequired: true},
-    {placeholder: 'Email (optional)', isRequired: false}
-  ];
-
-  $scope.submitForm = function() {
-    alert('it works!');
+app.controller('CounterController', ['$scope', function($scope) {
+  $scope.decrement = function() {
+    $scope.count = $scope.count - 1;
   };
 }]);
