@@ -4,8 +4,13 @@ require('angular/angular');
 
 var app = angular.module('myApp', []);
 
-app.controller('CounterController', ['$scope', function($scope) {
-  $scope.decrement = function() {
-    $scope.count = $scope.count - 1;
+app.controller('FormController', ['$scope', function($scope) {
+  $scope.person = { name: null };
+  $scope.people = [];
+  $scope.submit = function() {
+    if ($scope.person.name) {
+      $scope.people.push({name: $scope.person.name});
+      $scope.person.name = '';
+    }
   };
 }]);
