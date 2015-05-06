@@ -49,6 +49,7 @@ $ node server
 ###### Note: It can be helpful to give this process its own terminal tab.
 
 
+<br>
 ## Grunt Commands
 
 > Run tests:
