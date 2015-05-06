@@ -5,29 +5,45 @@ Code and examples from ng-book.pdf
 
 ## Initial Setup
 
-clone this repo:
+>Clone this repo:
 ```
-git clone git@github.com:rorysterley/ng-book.git
-```
-
-Install dependancies:
-```
-npm install
+$ git clone git@github.com:rorysterley/ng-book.git
 ```
 
-Create a local data-base folder:
+<br>
+>Change directory to project root:
 ```
-mkdir db
-```
-
-Start MongoDB:  (if you don't have MongoDB installed see their [docs](http://docs.mongodb.org/manual/))
-```
-mongod --dbpath=./db --smallfiles
+$ cd ng-book
 ```
 
-Start the server:
+<br>
+>Install dependancies:
 ```
-node server
+$ npm install
+```
+
+<br>
+>Install grunt-cli globally (if you don't have it)
+```
+$ npm install -g grunt-cli
+```
+
+<br>
+>Create a local data-base folder:
+```
+$ mkdir db
+```
+
+<br>
+>Start MongoDB:  (if you don't have MongoDB installed see their [docs](http://docs.mongodb.org/manual/))
+```
+$ mongod --dbpath=./db --smallfiles
+```
+
+<br>
+>Start the server:
+```
+$ node server
 ```
 
 ## License
