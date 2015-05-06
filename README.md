@@ -66,7 +66,7 @@ $ grunt build
 <br>
 ## Contributors
 
-[Rory Sterley](github.com/rorysterley)<br>
+[Rory Sterley](//github.com/rorysterley)<br>
 
 
 <br>
