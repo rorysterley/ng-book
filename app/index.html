@@ -1,12 +1,28 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html ng-app="myApp">
 <head>
-  <meta charset="UTF-8">
-  <title>ng-book</title>
+  <title>Simple app</title>
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/foundation/4.3.2/css/foundation.min.css">
+  <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
 
-  <script src="bundle.js"></script>
+  <div sidebox title="Links">
+    <ul>
+      <li>First link</li>
+      <li>Second link</li>
+    </ul>
+  </div>
+  <div sidebox title="TagCloud">
+    <div class="tagcloud">
+      <a href="">Graphics</a>
+      <a href="">AngularJS</a>
+      <a href="">D3</a>
+      <a href="">Front-end</a>
+      <a href="">Startup</a>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="bundle.js"></script>
 </body>
 </html>
