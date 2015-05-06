@@ -39,12 +39,20 @@ $ mkdir db
 ```
 $ mongod --dbpath=./db --smallfiles
 ```
+###### Note: This process should be given its own terminal tab.
 
 <br>
 >Start the server:
 ```
 $ node server
 ```
+###### Note: It can be helpful to give this process its own terminal tab.
+
+
+## Contributors
+
+[Rory Sterley](github.com/rorysterley)<br>
+
 
 ## License
 [MIT](LICENSE)
