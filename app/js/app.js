@@ -3,7 +3,8 @@
 require('angular/angular');
 
 var app = angular.module('myApp', []);
-
+//jscs:disable
+/* jshint ignore:start */
 app.directive('sidebox', function() {
   return {
     restrict: 'EA',
@@ -21,3 +22,4 @@ app.directive('sidebox', function() {
       </div>'
   };
 });
+/* jshint ignore:end */

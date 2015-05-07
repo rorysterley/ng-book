@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = function(grunt) {
+  grunt.loadNpmTasks('grunt-jscs');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-simple-mocha');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -8,8 +9,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
-
-  grunt.loadNpmTasks('grunt-jscs');
 
   grunt.initConfig({
 
@@ -43,17 +42,21 @@ module.exports = function(grunt) {
 
     simplemocha: {
       all: {
+        options: {
+          clearRequireCache: true
+        },
         src: ['test/server/**/*.js']
       }
     },
 
     watch: {
       scripts: {
-        files: ['**/*.js'],
+        files: ['!**/node_modules/**', '**/*.js'],
         tasks: ['jshint', 'simplemocha:all']
       },
       options: {
-        spawn: false
+        spawn: false,
+        timeout: 3000
       }
     },
 
