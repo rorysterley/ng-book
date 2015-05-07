@@ -19,14 +19,14 @@ describe('Todo endpoints', function() {
   // Setup --------------------------------------------------------------------
   var todoId;
 
-  // Chai is failing to run the after block sometimes:
-  // Im in a hurry so BAM! this fixes it!
+  // Drop test database
   before(function(done) {
     mongoose.connection.db.dropDatabase(function() {
       done();
     });
   });
 
+  // Populate test database with seed data and set test variables
   before(function(done) {
     var newTodo = new Todo();
     newTodo.text = 'Must finish project!';
@@ -35,12 +35,6 @@ describe('Todo endpoints', function() {
 
       todoId = todo._id;
 
-      done();
-    });
-  });
-
-  after(function(done) {
-    mongoose.connection.db.dropDatabase(function() {
       done();
     });
   });
