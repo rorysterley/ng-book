@@ -1,11 +1,20 @@
-'use strickt';
+'use strict';
 
 require('angular/angular');
 require('angular-route');
 
-var app = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute']); // jshint ignore:line
 
-app.config(['$routeProvider', function($routeProvider) {
+// services
+
+// controllers
+require('./controllers/dashboardController.js')(myApp);
+require('./controllers/inboxController.js')(myApp);
+
+// directives
+
+// config
+myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'views/home.html',
@@ -28,14 +37,11 @@ app.config(['$routeProvider', function($routeProvider) {
         }]
       }
     })
+    .when('/inbox/:name', {
+      controller: 'InboxController',
+      templateUrl: 'views/inbox.html'
+    })
     .otherwise({
       redirectTo: '/'
     });
 }]);
-
-app.controller('DashboardController', ['$scope', 'todos',
-  function($scope, todos) {
-    $scope.dashboardModel = {
-      todos: todos
-    };
-  }]);
