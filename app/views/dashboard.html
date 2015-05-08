@@ -1,0 +1,11 @@
+<div>
+  <h2>Dashboard Route</h2>
+  <p>{{ dashboardModel.data }}</p>
+
+  <ul>
+    <li ng-repeat="todo in dashboardModel.todos">
+      {{ todo.text }}
+    </li>
+  </ul>
+
+</div>
